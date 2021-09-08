@@ -1,7 +1,8 @@
 //Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
 	/*Icon*/		/*Command*/				/*Update Interval*/	/*Update Signal*/
-	{	"",	"amixer get Master | awk -F'[][]' 'END{ ORS=\"\"; if ($4 == \"on\") {print \" \"$2} else {print \"婢\"}}'",	0,	1},
+	{	"", "echo 盛 $(($(cat /sys/class/backlight/intel_backlight/brightness) / 44))%", 0, 2},
+	{	"",	"amixer get Master | awk -F'[][]' 'END{ ORS=\"\"; if ($6 == \"on\") {print \" \"$2} else {print \"婢\"}}'",	0,	1},
 	{	"",	"date +' %H:%M   %Y %m %d   '",	10,	0},
 };
 
